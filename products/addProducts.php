@@ -8,10 +8,10 @@
             $this->db = new DB();
         }
 
-        public function addProduct($name, $description, $stocks, $price) {
+        public function addProduct($name, $description, $stocks, $price, $category) {
             $conn = $this->db->getConnection();
-            $stmt = $conn->prepare("INSERT INTO products (product_name, product_description, product_stock, product_price) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("ssid", $name, $description, $stocks, $price);
+            $stmt = $conn->prepare("INSERT INTO products (product_name, product_description, product_stock, product_price, product_category) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssids", $name, $description, $stocks, $price, $category);
             if ($stmt->execute()) {
                 $this->msg = "Product added successfully!";
                 return $this->msg;
@@ -20,6 +20,18 @@
                 return $this->msg;
             }
         }
+    }
+
+    if (isset($_POST['submit'])) {
+        $name = $_POST['product_name'];
+        $description = $_POST['product_description'];
+        $stocks = $_POST['product_stock'];
+        $price = $_POST['selling_price'];
+        $category = $_POST['product_category'];
+
+        $addProduct = new AddProducts();
+        $addProduct->addProduct($name, $description, $stocks, $price, $category);
+        
     }
 ?>
 
@@ -36,14 +48,14 @@
     <div class="flex-grow-1 p-4">
         <div class="card sm-shadow">
             <div class="card-body">
-                <form action=<?php echo $_SERVER['PHP_SELF']; ?> methods="POST">
+                <form action="addProducts.php" method="POST">
                     <h3 class="text-center fw-bold">Add Product</h3>
                     <div class="row">
                         <div class="col-12">
                             <div class="mb-3">
                                 <label for="product_description" class="form-label">Categories</label>
                                 <select class="form-select" id="product_category" name="product_category" required>
-                                    <option value=""><-- Select Category --></option>
+                                    <option value="">Select Category</option>
                                     <option value="electronics">Electronics</option>
                                     <option value="clothing">Clothing</option>
                                     <option value="home_appliances">Home Appliances</option>
@@ -76,7 +88,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary w-100" name="add_product">Add Product</button>
+                            <button type="submit" class="btn btn-primary w-100" name="submit">Add Product</button>
                         </div>
                     </div>
                 </form>

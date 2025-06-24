@@ -15,34 +15,70 @@
       background-color: #343a40;
       color: white;
     }
-    .sidebar a {
-      color: white;
+    .nav-item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem 0;
+    }
+    .nav-item a {
+      color: rgb (240, 235, 245);
       text-decoration: none;
     }
-    .sidebar a:hover {
-      background-color: #495057;
-      color: white;
-    }
+
   </style>
 </head>
 <body>
 
   <div class="sidebar d-flex flex-column p-3">
-    <h4 class="text-center mb-4">Admin Panel</h4>
+    <a style="text-decoration: none; color: white;" href="../admin/dashboard.php">
+        <h4 class="text-center mb-4">Admin Panel</h4>
+    </a>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="#customers" class="nav-link text-white">Manage Customers</a>
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Customers
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../admin/products.php">View Customer</a></li>
+                <li><a class="dropdown-item" href="../products/addProducts.php">Add Customer</a></li>
+            </ul>
+        </div>
       </li>
-      <li>
-        <a href="../admin/products.php" class="nav-link text-white">Products</a>
+      <li class="nav-item">
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Products
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../admin/products.php">View Products</a></li>
+                <li><a class="dropdown-item" href="../products/addProducts.php">Add Products</a></li>
+            </ul>
+        </div>
       </li>
-      <li>
-        <a href="#orders" class="nav-link text-white">Orders</a>
+      <li class="nav-item">
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Orders
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../admin/orders.php">View Orders</a></li>
+            </ul>
+        </div>
       </li>
     </ul>
     <hr>
     <div>
-      <a href="logout.php" class="btn btn-danger w-100">Logout</a>
+      <div class="dropdown text-center">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Profile
+            </a>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="../admin/products.php">View Profile</a></li>
+                <li><a class="dropdown-item" href="../products/addProducts.php">Logout</a></li>
+            </ul>
+        </div>
     </div>
   </div>
 

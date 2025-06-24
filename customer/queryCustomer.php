@@ -23,19 +23,4 @@
         }
     }
 
-    class setOnlineStatus {
-        private $db;
-
-        public function __construct() {
-            $this->db = new DB();
-        }
-
-        public function setOnlineStatus($status, $customer_id) {
-            $conn = $this->db->getConnection();
-            $stmt = $conn->prepare("UPDATE users SET status = ? WHERE id = ?");
-            $stmt->bind_param("si", $status, $customer_id);
-            return $stmt->execute();
-        }
-    }
-
 ?>

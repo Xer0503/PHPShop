@@ -19,4 +19,18 @@ class QueryProducts {
             return [];
         }
     }
+
+    public function getProductById($product_id) {
+        $conn = $this->db->getConnection();
+        $stmt = $conn->prepare("SELECT * FROM products WHERE product_id = ?");
+        $stmt->bind_param("i", $product_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return null;
+        }
+    }
 }
