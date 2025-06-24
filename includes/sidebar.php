@@ -41,8 +41,8 @@
                 Customers
             </a>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="../admin/products.php">View Customer</a></li>
-                <li><a class="dropdown-item" href="../products/addProducts.php">Add Customer</a></li>
+                <li><a class="dropdown-item" href="../admin/customer.php">View Customer</a></li>
+                <li><a class="dropdown-item" href="../customer/addCustomer.php">Add Customer</a></li>
             </ul>
         </div>
       </li>
