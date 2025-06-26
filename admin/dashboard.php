@@ -1,5 +1,9 @@
 <?php 
     session_start();
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+    header("Location: ../404/404.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>

@@ -27,7 +27,7 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Customer List</h5>
-                <table class="table">
+                <table class="table text-center">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -59,8 +59,10 @@
                             echo "<td>" . $customer['status'] . "</td>";
                             echo "<td>" . $customer['role'] . "</td>";
                             echo "<td>
-                                    <a href='../customer/editCustomer.php?id=" . $customer['customer_id'] . "' class='btn btn-sm btn-primary'>Edit</a>
-                                    <a href='?id=" . $customer['customer_id'] . "' class='btn btn-sm btn-danger'>Delete</a>
+                                    <div class='btn-group' role='group'>
+                                        <a href='../customer/editCustomer.php?id=" . $customer['customer_id'] . "' class='btn btn-sm btn-warning'>Edit</a>
+                                        <a href='?id=" . $customer['customer_id'] . "' class='btn btn-sm btn-danger'>Delete</a>
+                                    </div>
                                   </td>";
                             echo "</tr>";
                         }
