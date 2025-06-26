@@ -48,7 +48,7 @@
     <div class="flex-grow-1 p-4">
         <div class="card sm-shadow">
             <div class="card-body">
-                <form action="addProducts.php" method="POST">
+                <form action="addProducts.php" method="POST" autocomplete="off" enctype="multipart/form-data">
                     <h3 class="text-center fw-bold">Add Product</h3>
                     <div class="row">
                         <div class="col-12">

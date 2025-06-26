@@ -45,9 +45,12 @@
             else{
                 echo "<h1 class='text-center'>Welcome to the Online Shop!</h1>";
             }
-        ?> 
+        ?>
+        
+        <div class="row p-5">
+            <?php include '../includes/card.php'; ?>
+        </div>
     </div>
-
     <?php include '../includes/footer.html'; ?>
 </body>
 </html>

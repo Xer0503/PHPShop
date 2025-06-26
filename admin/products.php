@@ -49,8 +49,8 @@ $pds = new QueryProducts();
                     </div>
                     <div class="mt-4">
                         <h2 class="h5">Product List</h2>
-                        <table class="table">
-                            <thead>
+                        <table class="table text-center">
+                            <thead class="table-dark">
                                 <tr>
                                     <th>ID</th>
                                     <th>Name</th>
