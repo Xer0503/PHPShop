@@ -16,10 +16,9 @@
     }
 
     if (isset($_GET['logout']) && $_GET['logout'] === 'true') {
-        $setOfflineStatus->setOffline('offline', $_SESSION['customer_id']);
-        session_unset();
-        session_destroy();
-        header("Location: ../includes/login.php");
+        require_once '../admin/logout.php';
+        $logout = new Logout();
+        $logout->logout();
         exit();
     }
 

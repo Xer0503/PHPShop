@@ -5,6 +5,12 @@
         header("Location: ../404/404.php");
         exit();
     }
+    if (isset($_GET['id'])) {
+        require_once '../customer/deleteCustomer.php';
+        $customer_id = $_GET['id'];
+        $deleteCustomer = new DeleteCustomer();
+        $deleteCustomer->deleteCustomer($customer_id);
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +60,7 @@
                             echo "<td>" . $customer['role'] . "</td>";
                             echo "<td>
                                     <a href='../customer/editCustomer.php?id=" . $customer['customer_id'] . "' class='btn btn-sm btn-primary'>Edit</a>
-                                    <a href='deleteCustomer.php?id=" . $customer['customer_id'] . "' class='btn btn-sm btn-danger'>Delete</a>
+                                    <a href='?id=" . $customer['customer_id'] . "' class='btn btn-sm btn-danger'>Delete</a>
                                   </td>";
                             echo "</tr>";
                         }

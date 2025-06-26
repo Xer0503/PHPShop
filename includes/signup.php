@@ -11,6 +11,7 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
         $role = $_POST['role'];
+        $status = 'offline';
         
         $result = $createAcc->createAccount($first_name, $last_name, $phone, $location, $email, $password, $status ,$role);
         if ($result) {

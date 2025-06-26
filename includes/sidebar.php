@@ -1,3 +1,12 @@
+<?php 
+  require_once '../admin/logout.php';
+
+  if(isset($_GET['logout']) && $_GET['logout'] === 'true') {
+    $logout = new Logout();
+    $logout->logout();
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +85,7 @@
             </a>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="../admin/products.php">View Profile</a></li>
-                <li><a class="dropdown-item" href="../products/addProducts.php">Logout</a></li>
+                <li><a class="dropdown-item" href="?logout=true">Logout</a></li>
             </ul>
         </div>
     </div>

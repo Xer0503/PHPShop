@@ -11,7 +11,6 @@
 
     class EditCustomer {
         private $db;
-        private $msg = '';
 
         public function __construct() {
             $this->db = new DB();
@@ -92,8 +91,8 @@
                         <div class="col-md-6 mb-3">
                             <label for="status" class="form-label">Status</label>
                             <select class="form-select" id="status" name="status" required>
-                                <option value="active" <?php echo ($customerData['status'] === 'online') ? 'selected' : ''; ?>>Online</option>
-                                <option value="inactive" <?php echo ($customerData['status'] === 'offline') ? 'selected' : ''; ?>>Offline</option>
+                                <option value="online" <?php echo ($customerData['status'] === 'online') ? 'selected' : ''; ?>>Online</option>
+                                <option value="offline" <?php echo ($customerData['status'] === 'offline') ? 'selected' : ''; ?>>Offline</option>
                             </select>
                         </div>
                         <div class="col-md-6 mb-3">
